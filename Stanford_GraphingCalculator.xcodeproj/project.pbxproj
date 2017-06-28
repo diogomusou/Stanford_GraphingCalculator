@@ -14,6 +14,8 @@
 		C70C91EE1F03C48C008AC293 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C70C91EC1F03C48C008AC293 /* LaunchScreen.storyboard */; };
 		C70C91F91F03C48C008AC293 /* Stanford_GraphingCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70C91F81F03C48C008AC293 /* Stanford_GraphingCalculatorTests.swift */; };
 		C70C92041F03C48C008AC293 /* Stanford_GraphingCalculatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70C92031F03C48C008AC293 /* Stanford_GraphingCalculatorUITests.swift */; };
+		C70C92131F03C63D008AC293 /* GraphingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70C92121F03C63D008AC293 /* GraphingView.swift */; };
+		C70C92151F03CA11008AC293 /* AxesDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70C92141F03CA10008AC293 /* AxesDrawer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		C70C91FF1F03C48C008AC293 /* Stanford_GraphingCalculatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Stanford_GraphingCalculatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C70C92031F03C48C008AC293 /* Stanford_GraphingCalculatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stanford_GraphingCalculatorUITests.swift; sourceTree = "<group>"; };
 		C70C92051F03C48C008AC293 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C70C92121F03C63D008AC293 /* GraphingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphingView.swift; sourceTree = "<group>"; };
+		C70C92141F03CA10008AC293 /* AxesDrawer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AxesDrawer.swift; path = ../../../../Downloads/AxesDrawer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,12 +101,11 @@
 		C70C91E21F03C48C008AC293 /* Stanford_GraphingCalculator */ = {
 			isa = PBXGroup;
 			children = (
-				C70C91E31F03C48C008AC293 /* AppDelegate.swift */,
+				C70C92141F03CA10008AC293 /* AxesDrawer.swift */,
 				C70C91E51F03C48C008AC293 /* ViewController.swift */,
+				C70C92121F03C63D008AC293 /* GraphingView.swift */,
 				C70C91E71F03C48C008AC293 /* Main.storyboard */,
-				C70C91EA1F03C48C008AC293 /* Assets.xcassets */,
-				C70C91EC1F03C48C008AC293 /* LaunchScreen.storyboard */,
-				C70C91EF1F03C48C008AC293 /* Info.plist */,
+				C70C92111F03C4B1008AC293 /* Support Files */,
 			);
 			path = Stanford_GraphingCalculator;
 			sourceTree = "<group>";
@@ -123,6 +126,17 @@
 				C70C92051F03C48C008AC293 /* Info.plist */,
 			);
 			path = Stanford_GraphingCalculatorUITests;
+			sourceTree = "<group>";
+		};
+		C70C92111F03C4B1008AC293 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				C70C91E31F03C48C008AC293 /* AppDelegate.swift */,
+				C70C91EA1F03C48C008AC293 /* Assets.xcassets */,
+				C70C91EC1F03C48C008AC293 /* LaunchScreen.storyboard */,
+				C70C91EF1F03C48C008AC293 /* Info.plist */,
+			);
+			name = "Support Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,6 +270,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C70C92131F03C63D008AC293 /* GraphingView.swift in Sources */,
+				C70C92151F03CA11008AC293 /* AxesDrawer.swift in Sources */,
 				C70C91E61F03C48C008AC293 /* ViewController.swift in Sources */,
 				C70C91E41F03C48C008AC293 /* AppDelegate.swift in Sources */,
 			);
@@ -421,6 +437,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = MD49SC946D;
 				INFOPLIST_FILE = Stanford_GraphingCalculator/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "jpn.br.classico.diogomsouza.Stanford-GraphingCalculator";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -435,6 +452,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = MD49SC946D;
 				INFOPLIST_FILE = Stanford_GraphingCalculator/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "jpn.br.classico.diogomsouza.Stanford-GraphingCalculator";
 				PRODUCT_NAME = "$(TARGET_NAME)";

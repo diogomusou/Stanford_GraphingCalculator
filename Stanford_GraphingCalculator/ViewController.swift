@@ -9,16 +9,22 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    @IBOutlet weak var graphingView: GraphingView! {
+        didSet {
+            let pinch = UIPinchGestureRecognizer(target: graphingView, action: #selector(graphingView.setScale(byReactingTo:)))
+            graphingView.addGestureRecognizer(pinch)
+            graphingView.originPosition = CGPoint(x: graphingView.bounds.midX, y: graphingView.bounds.midY)
+        }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func updateUI () {
+        
     }
+    
+    
+    
 
 
 }
