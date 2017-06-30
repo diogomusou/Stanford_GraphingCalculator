@@ -14,6 +14,7 @@ class GraphingView: UIView {
     @IBInspectable
     var scale : CGFloat = 50 { didSet { setNeedsDisplay() } }
     var originPosition : CGPoint = CGPoint() { didSet { setNeedsDisplay() } }
+    var functionToDraw : (Double) -> Double = {$0 * $0 + $0 * 2 + 10}
     
     //Zoom in/out by pinching
     @objc func setScale (byReactingTo pinchRecognizer: UIPinchGestureRecognizer) {
@@ -49,8 +50,29 @@ class GraphingView: UIView {
     
     override func draw(_ rect: CGRect) {
         let axes = AxesDrawer(color: .black, contentScaleFactor: self.contentScaleFactor)
-        axes.drawAxes(in: self.bounds, origin: originPosition , pointsPerUnit: scale)
+        axes.drawAxes(in: rect, origin: originPosition , pointsPerUnit: scale)
+        
+        let path = UIBezierPath()
+        for point in 0...Int(rect.maxX) {
+            let boundsX = Double(point)
+            let graphX = (boundsX - Double(originPosition.x))/Double(scale)   //transform screen X into the axes X
+            let nextGraphX = (boundsX + 1 - Double(originPosition.x))/Double(scale)
+            let graphY = Double(originPosition.y) - functionToDraw(graphX) * Double(scale)    //get Y and transform it to the correct scale and position on axes Y
+            let nextGraphY = Double(originPosition.y) - functionToDraw(nextGraphX) * Double(scale)
+            
+            path.move(to: CGPoint(x: boundsX, y: graphY ))
+            path.addLine(to: CGPoint(x: boundsX + 1, y: nextGraphY ))
+        }
+        path.stroke()
+        
+//        print("scale: \(scale)")
+//        print("left in points: \((rect.minX - originPosition.x))")
+//        print("left: \((rect.minX - originPosition.x)/scale)")
+//        print("right: \((rect.maxX - originPosition.x)/scale)")
+//        print("up: \((originPosition.y - abs(rect.minY))/scale)")
+//        print("down: \((originPosition.y - abs(rect.maxY))/scale)")
     }
+    
     
 
 }
