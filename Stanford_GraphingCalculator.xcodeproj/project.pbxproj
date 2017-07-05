@@ -55,8 +55,8 @@
 		C70C92121F03C63D008AC293 /* GraphingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphingView.swift; sourceTree = "<group>"; };
 		C70C92141F03CA10008AC293 /* AxesDrawer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AxesDrawer.swift; sourceTree = "<group>"; };
 		C74919B51F04E7190014A966 /* GraphingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphingModel.swift; sourceTree = "<group>"; };
-		C766C15D1F0CF01E009765A9 /* CalculatorBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CalculatorBrain.swift; path = "../../../Stanford_Calculator_2/Stanford Calculator/CalculatorBrain.swift"; sourceTree = "<group>"; };
-		C766C15F1F0CF02B009765A9 /* CalculatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CalculatorViewController.swift; path = "../../../Stanford_Calculator_2/Stanford Calculator/CalculatorViewController.swift"; sourceTree = "<group>"; };
+		C766C15D1F0CF01E009765A9 /* CalculatorBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorBrain.swift; sourceTree = "<group>"; };
+		C766C15F1F0CF02B009765A9 /* CalculatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
