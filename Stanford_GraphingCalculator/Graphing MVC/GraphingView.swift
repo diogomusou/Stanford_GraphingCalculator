@@ -63,6 +63,8 @@ class GraphingView: UIView {
             path.move(to: CGPoint(x: boundsX, y: graphY ))
             path.addLine(to: CGPoint(x: boundsX + 1, y: nextGraphY ))
         }
+        let color : UIColor = UIColor.black
+        color.set()
         path.stroke()
         
 //        print("scale: \(scale)")

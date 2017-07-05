@@ -17,6 +17,8 @@
 		C70C92131F03C63D008AC293 /* GraphingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70C92121F03C63D008AC293 /* GraphingView.swift */; };
 		C70C92151F03CA11008AC293 /* AxesDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70C92141F03CA10008AC293 /* AxesDrawer.swift */; };
 		C74919B61F04E7190014A966 /* GraphingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74919B51F04E7190014A966 /* GraphingModel.swift */; };
+		C766C15E1F0CF01E009765A9 /* CalculatorBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = C766C15D1F0CF01E009765A9 /* CalculatorBrain.swift */; };
+		C766C1601F0CF02C009765A9 /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C766C15F1F0CF02B009765A9 /* CalculatorViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,8 +53,10 @@
 		C70C92031F03C48C008AC293 /* Stanford_GraphingCalculatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stanford_GraphingCalculatorUITests.swift; sourceTree = "<group>"; };
 		C70C92051F03C48C008AC293 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C70C92121F03C63D008AC293 /* GraphingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphingView.swift; sourceTree = "<group>"; };
-		C70C92141F03CA10008AC293 /* AxesDrawer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AxesDrawer.swift; path = ../../../../Downloads/AxesDrawer.swift; sourceTree = "<group>"; };
+		C70C92141F03CA10008AC293 /* AxesDrawer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AxesDrawer.swift; sourceTree = "<group>"; };
 		C74919B51F04E7190014A966 /* GraphingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphingModel.swift; sourceTree = "<group>"; };
+		C766C15D1F0CF01E009765A9 /* CalculatorBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CalculatorBrain.swift; path = "../../../Stanford_Calculator_2/Stanford Calculator/CalculatorBrain.swift"; sourceTree = "<group>"; };
+		C766C15F1F0CF02B009765A9 /* CalculatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CalculatorViewController.swift; path = "../../../Stanford_Calculator_2/Stanford Calculator/CalculatorViewController.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,10 +107,8 @@
 		C70C91E21F03C48C008AC293 /* Stanford_GraphingCalculator */ = {
 			isa = PBXGroup;
 			children = (
-				C70C92141F03CA10008AC293 /* AxesDrawer.swift */,
-				C70C91E51F03C48C008AC293 /* GraphingViewController.swift */,
-				C70C92121F03C63D008AC293 /* GraphingView.swift */,
-				C74919B51F04E7190014A966 /* GraphingModel.swift */,
+				C766C15C1F0CEFE0009765A9 /* Calculator MVC */,
+				C766C15B1F0CEFCB009765A9 /* Graphing MVC */,
 				C70C91E71F03C48C008AC293 /* Main.storyboard */,
 				C70C92111F03C4B1008AC293 /* Support Files */,
 			);
@@ -140,6 +142,26 @@
 				C70C91EF1F03C48C008AC293 /* Info.plist */,
 			);
 			name = "Support Files";
+			sourceTree = "<group>";
+		};
+		C766C15B1F0CEFCB009765A9 /* Graphing MVC */ = {
+			isa = PBXGroup;
+			children = (
+				C70C92141F03CA10008AC293 /* AxesDrawer.swift */,
+				C70C91E51F03C48C008AC293 /* GraphingViewController.swift */,
+				C70C92121F03C63D008AC293 /* GraphingView.swift */,
+				C74919B51F04E7190014A966 /* GraphingModel.swift */,
+			);
+			path = "Graphing MVC";
+			sourceTree = "<group>";
+		};
+		C766C15C1F0CEFE0009765A9 /* Calculator MVC */ = {
+			isa = PBXGroup;
+			children = (
+				C766C15D1F0CF01E009765A9 /* CalculatorBrain.swift */,
+				C766C15F1F0CF02B009765A9 /* CalculatorViewController.swift */,
+			);
+			path = "Calculator MVC";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,9 +295,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C766C15E1F0CF01E009765A9 /* CalculatorBrain.swift in Sources */,
 				C70C92131F03C63D008AC293 /* GraphingView.swift in Sources */,
 				C70C92151F03CA11008AC293 /* AxesDrawer.swift in Sources */,
 				C70C91E61F03C48C008AC293 /* GraphingViewController.swift in Sources */,
+				C766C1601F0CF02C009765A9 /* CalculatorViewController.swift in Sources */,
 				C74919B61F04E7190014A966 /* GraphingModel.swift in Sources */,
 				C70C91E41F03C48C008AC293 /* AppDelegate.swift in Sources */,
 			);

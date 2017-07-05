@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+struct MathematicFunction {
+    var function : (Double) -> Double
+    
+    
+}

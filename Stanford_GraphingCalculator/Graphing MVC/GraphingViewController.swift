@@ -24,8 +24,21 @@ class GraphingViewController: UIViewController {
         }
     }
     
+    var mathematicFunction = MathematicFunction(function: cos) {
+        didSet {
+            updateUI()
+        }
+    }
+    
     func updateUI () {
-        graphingView?.originPosition = CGPoint(x: graphingView.bounds.midX, y: graphingView.bounds.midY)
+        print(graphingView?.superview?.bounds ?? "superview bounds nil")
+        graphingView?.originPosition = CGPoint(x: graphingView.superview!.bounds.midX, y: graphingView.superview!.bounds.midY)
+        graphingView?.functionToDraw = mathematicFunction.function
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        updateUI()
     }
     
     
