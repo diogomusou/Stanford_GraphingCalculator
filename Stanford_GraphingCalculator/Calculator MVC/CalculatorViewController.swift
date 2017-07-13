@@ -10,6 +10,7 @@ import UIKit
 
 class CalculatorViewController: UIViewController {
 
+    @IBOutlet weak var graphButton: UIButton!
     @IBOutlet weak var displayLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var variableLabel: UILabel!
@@ -112,6 +113,7 @@ class CalculatorViewController: UIViewController {
             variablesDictionary = [:]
             descriptionLabel.text = " "
             variableLabel.text = " "
+            graphButton.isEnabled = false
         }
         displayLabel.text = "0"
         userIsInTheMiddleOfTyping = false
@@ -124,10 +126,14 @@ class CalculatorViewController: UIViewController {
             displayValue = result
         }
         let description = brain.evaluate().description
+        graphButton.isEnabled = false
         if brain.evaluate().isPending {
             descriptionLabel.text = description + " ..."
         } else {
             descriptionLabel.text = description == "" ? " " : (description + " =")
+            if descriptionLabel.text != "" {
+                graphButton.isEnabled = true
+            }
         }
         
         if let variableValue = variablesDictionary["M"] {
@@ -137,13 +143,22 @@ class CalculatorViewController: UIViewController {
         }
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        graphButton.isEnabled = false
+        graphButton.setTitleColor(.gray, for: .disabled)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         var destinationVC = segue.destination
         if let navigationController = destinationVC as? UINavigationController {
             destinationVC = navigationController.visibleViewController  ?? destinationVC
         }
         if let graphingVC = destinationVC as? GraphingViewController {
-            graphingVC.mathematicFunction.function = sin
+            graphingVC.mathematicFunction.function = {[weak weakSelf = self] x in
+                return weakSelf!.brain.evaluate(using: ["M":x]).result!
+            }
+            graphingVC.navigationItem.title = self.brain.evaluate().description
         }
     }
     

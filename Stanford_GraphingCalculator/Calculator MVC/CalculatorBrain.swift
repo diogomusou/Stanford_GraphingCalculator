@@ -109,6 +109,8 @@ struct CalculatorBrain {
         "√" : Operation.unaryOperation(sqrt,   {"√(\($0))"}),
         "±" : Operation.unaryOperation({-$0},  {"-(\($0))"}),
         "x⁻¹":Operation.unaryOperation({1/$0}, {"(\($0))⁻¹"}),
+        "x²":Operation.unaryOperation({$0*$0}, {"(\($0))²"}),
+        "x³":Operation.unaryOperation({$0*$0*$0}, {"(\($0))³"}),
         "cos":Operation.unaryOperation(cos,    {"cos(\($0))"}),
         "sin":Operation.unaryOperation(sin,    {"sin(\($0))"}),
         "tan":Operation.unaryOperation(tan,    {"tan(\($0))"}),

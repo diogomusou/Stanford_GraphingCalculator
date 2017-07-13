@@ -8,14 +8,16 @@
 
 import UIKit
 
-class GraphingViewController: UIViewController {
+class GraphingViewController: UIViewController, UIGestureRecognizerDelegate {
     
 
     @IBOutlet weak var graphingView: GraphingView! {
         didSet {
             let pinch = UIPinchGestureRecognizer(target: graphingView, action: #selector(graphingView.setScale(byReactingTo:)))
+            pinch.delegate = self //added to recognize 2 gestures at the same time
             graphingView.addGestureRecognizer(pinch)
             let pan = UIPanGestureRecognizer(target: graphingView, action: #selector(graphingView.moveOrigin(byReactingTo:)))
+            pan.delegate = self //added to recognize 2 gestures at the same time
             graphingView.addGestureRecognizer(pan)
             let doubleTap = UITapGestureRecognizer(target: graphingView, action: #selector(graphingView.setOrigin(byReactingTo:)))
             doubleTap.numberOfTapsRequired = 2
@@ -41,7 +43,9 @@ class GraphingViewController: UIViewController {
         updateUI()
     }
     
-    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
     
 
 

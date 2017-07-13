@@ -16,14 +16,39 @@ class GraphingView: UIView {
     var originPosition : CGPoint = CGPoint() { didSet { setNeedsDisplay() } }
     var functionToDraw : (Double) -> Double = {$0 * $0 + $0 * 2 + 10}
     
+    /*
+     if sender.numberOfTouches() == 2 {
+     let locationInView = sender.locationInView(self.view)
+     let location = self.convertPointFromView(locationInView)
+     if sender.state == .Changed {
+     let deltaScale = (sender.scale - 1.0)*2
+     let convertedScale = sender.scale - deltaScale
+     let newScale = game.camera.xScale*convertedScale
+     game.camera.setScale(newScale)
+     
+     let locationAfterScale = self.convertPointFromView(locationInView)
+     let locationDelta = pointSubtract(location, pointB: locationAfterScale)
+     let newPoint = pointAdd(game.camera.position, pointB: locationDelta)
+     game.camera.position = newPoint
+     sender.scale = 1.0
+     }
+     }
+     */
     //Zoom in/out by pinching
+    private var initialPinchLocation = CGPoint(x: 0, y: 0)
+    private var initialGraphLocation = CGPoint(x: 0, y: 0)
+    
     @objc func setScale (byReactingTo pinchRecognizer: UIPinchGestureRecognizer) {
-        switch pinchRecognizer.state {
-        case .changed, .ended:
-            scale *= pinchRecognizer.scale
-            pinchRecognizer.scale = 1
-        default:
-            break
+        if pinchRecognizer.numberOfTouches == 2 {
+            initialPinchLocation = pinchRecognizer.location(in: self)
+            initialGraphLocation = CGPoint(x: (initialPinchLocation.x - originPosition.x) / scale, y: (initialPinchLocation.y - originPosition.y) / scale)
+            if pinchRecognizer.state == .changed {
+                scale *= pinchRecognizer.scale
+                
+                let positionOfInitialLocation = CGPoint(x: initialGraphLocation.x * scale + originPosition.x, y: initialGraphLocation.y * scale + originPosition.y)
+                originPosition = CGPoint(x: originPosition.x - (positionOfInitialLocation.x - initialPinchLocation.x), y: originPosition.y - (positionOfInitialLocation.y - initialPinchLocation.y))
+                pinchRecognizer.scale = 1.0
+            }
         }
     }
     
